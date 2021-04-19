@@ -47,7 +47,7 @@ class CustomTagsDemo extends StatelessWidget implements MarkdownDemoWidget {
   String get title => CustomTagsDemo._title;
 
   @override
-  String get description => 'An example of how to create a custom block tag.';
+  String get description => 'An example of how to create custom block tags.';
 
   @override
   Future<String> get data => Future<String>.value(_data);
