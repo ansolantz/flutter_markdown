@@ -18,6 +18,9 @@ class MarkdownStyleSheet {
     this.h4,
     this.h5,
     this.h6,
+    this.s1,
+    this.s2,
+    this.b2,
     this.em,
     this.strong,
     this.del,
@@ -64,6 +67,9 @@ class MarkdownStyleSheet {
           'h4': h4,
           'h5': h5,
           'h6': h6,
+          's1': s1,
+          's2': s2,
+          'b2': b2,
           'em': em,
           'strong': strong,
           'del': del,
@@ -92,6 +98,9 @@ class MarkdownStyleSheet {
       h4: theme.textTheme.bodyText1,
       h5: theme.textTheme.bodyText1,
       h6: theme.textTheme.bodyText1,
+      s1: theme.textTheme.subtitle1,
+      s2: theme.textTheme.subtitle2,
+      b2: theme.textTheme.bodyText2,
       em: const TextStyle(fontStyle: FontStyle.italic),
       strong: const TextStyle(fontWeight: FontWeight.bold),
       del: const TextStyle(decoration: TextDecoration.lineThrough),
@@ -174,6 +183,18 @@ class MarkdownStyleSheet {
       ),
       h6: theme.textTheme.textStyle.copyWith(
         fontWeight: FontWeight.w500,
+      ),
+      s1: theme.textTheme.textStyle.copyWith(
+        fontWeight: FontWeight.w500,
+        fontSize: theme.textTheme.textStyle.fontSize + 2,
+      ),
+      s2: theme.textTheme.textStyle.copyWith(
+        fontWeight: FontWeight.w500,
+        fontSize: theme.textTheme.textStyle.fontSize,
+      ),
+      b2: theme.textTheme.textStyle.copyWith(
+        fontWeight: FontWeight.w500,
+        fontSize: theme.textTheme.textStyle.fontSize,
       ),
       em: theme.textTheme.textStyle.copyWith(
         fontStyle: FontStyle.italic,
@@ -258,6 +279,9 @@ class MarkdownStyleSheet {
       h4: theme.textTheme.headline5,
       h5: theme.textTheme.headline6,
       h6: theme.textTheme.subtitle1,
+      s1: theme.textTheme.subtitle1,
+      s2: theme.textTheme.subtitle2,
+      b2: theme.textTheme.bodyText2,
       em: const TextStyle(fontStyle: FontStyle.italic),
       strong: const TextStyle(fontWeight: FontWeight.bold),
       del: const TextStyle(decoration: TextDecoration.lineThrough),
@@ -312,6 +336,9 @@ class MarkdownStyleSheet {
     TextStyle h4,
     TextStyle h5,
     TextStyle h6,
+    TextStyle s1,
+    TextStyle s2,
+    TextStyle b2,
     TextStyle em,
     TextStyle strong,
     TextStyle del,
@@ -357,6 +384,9 @@ class MarkdownStyleSheet {
       h4: h4 ?? this.h4,
       h5: h5 ?? this.h5,
       h6: h6 ?? this.h6,
+      s1: s1 ?? this.s1,
+      s2: s2 ?? this.s2,
+      b2: b2 ?? this.b2,
       em: em ?? this.em,
       strong: strong ?? this.strong,
       del: del ?? this.del,
@@ -409,6 +439,9 @@ class MarkdownStyleSheet {
       h4: h4.merge(other.h4),
       h5: h5.merge(other.h5),
       h6: h6.merge(other.h6),
+      s1: s1.merge(other.s1),
+      s2: s2.merge(other.s2),
+      b2: b2.merge(other.b2),
       em: em.merge(other.em),
       strong: strong.merge(other.strong),
       del: del.merge(other.del),
@@ -472,6 +505,15 @@ class MarkdownStyleSheet {
 
   /// The [TextStyle] to use for `h6` elements.
   final TextStyle h6;
+
+  /// The [TextStyle] to use for `s1` elements.
+  final TextStyle s1;
+
+  /// The [TextStyle] to use for `s2` elements.
+  final TextStyle s2;
+
+  /// The [TextStyle] to use for `b2` elements.
+  final TextStyle b2;
 
   /// The [TextStyle] to use for `em` elements.
   final TextStyle em;
@@ -593,6 +635,9 @@ class MarkdownStyleSheet {
         typedOther.h4 == h4 &&
         typedOther.h5 == h5 &&
         typedOther.h6 == h6 &&
+        typedOther.s1 == s1 &&
+        typedOther.s2 == s2 &&
+        typedOther.b2 == b2 &&
         typedOther.em == em &&
         typedOther.strong == strong &&
         typedOther.del == del &&
@@ -641,6 +686,9 @@ class MarkdownStyleSheet {
       h4,
       h5,
       h6,
+      s1,
+      s2,
+      b2,
       em,
       strong,
       del,

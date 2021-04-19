@@ -18,6 +18,9 @@ const List<String> _kBlockTags = const <String>[
   'h4',
   'h5',
   'h6',
+  's1',
+  's2',
+  'b2',
   'li',
   'blockquote',
   'pre',
@@ -615,6 +618,9 @@ class MarkdownBuilder implements md.NodeVisitor {
 
   WrapAlignment _wrapAlignmentForBlockTag(String blockTag) {
     if (blockTag == "p") return styleSheet.textAlign;
+    if (blockTag == "s1") return styleSheet.textAlign;
+    if (blockTag == "s2") return styleSheet.textAlign;
+    if (blockTag == "b2") return styleSheet.textAlign;
     if (blockTag == "h1") return styleSheet.h1Align;
     if (blockTag == "h2") return styleSheet.h2Align;
     if (blockTag == "h3") return styleSheet.h3Align;
