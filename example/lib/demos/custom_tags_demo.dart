@@ -7,9 +7,9 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:markdown/markdown.dart' as md;
 import '../shared/markdown_demo_widget.dart';
 
-// Markdown source data showing the use of subscript tags.
+// Markdown source data showing the use of adding custom tags.
 const String _data = """
-## Custom tag syntax
+## Custom tags syntaxes
 
 s1 This is a subtitle1 text
 
@@ -37,9 +37,7 @@ b2 This is a bodyText2
 
 """;
 
-/// The subscript syntax demo provides an example of creating an inline syntax
-/// object which defines the syntax for the Markdown inline parser and an
-/// accompanying Markdown element builder object to handle subscript tags.
+/// The custom tags demo provides an example of creating custom block tags.
 class CustomTagsDemo extends StatelessWidget implements MarkdownDemoWidget {
   static const _title = 'Custom tags Demo';
 
@@ -94,9 +92,7 @@ class CustomTagsDemo extends StatelessWidget implements MarkdownDemoWidget {
               ),
             ),
             data: snapshot.data,
-            builders: {
-              //'sub': SubscriptBuilder(),
-            },
+            builders: {},
             extensionSet: md.ExtensionSet([
               Subtitle1BlockSyntax(),
               Subtitle2BlockSyntax(),
@@ -116,9 +112,6 @@ class Subtitle1BlockSyntax extends md.BlockSyntax {
 
   @override
   RegExp get pattern => RegExp(r'^ {0,3}s1[ ](.*)$');
-  //  RegExp get pattern => RegExp(r'^ {0,3}(s1{1,6})[ \x09\x0b\x0c](.*?)#*$');
-  //
-  //RegExp get pattern => RegExp(r'^ {0,3}(s1)[ ](.*)$');
 
   @override
   md.Node parse(md.BlockParser parser) {
@@ -127,15 +120,6 @@ class Subtitle1BlockSyntax extends md.BlockSyntax {
     var contents = md.UnparsedContent(match[1]);
     return md.Element('s1', [contents]);
   }
-
-  // @override
-  // md.Node parse(md.BlockParser parser) {
-  //   var match = pattern.firstMatch(parser.current);
-  //   parser.advance();
-  //   var level = match[1].length;
-  //   var contents = md.UnparsedContent(match[1].trim());
-  //   return md.Element('s$level', [contents]);
-  // }
 }
 
 class Subtitle2BlockSyntax extends md.BlockSyntax {

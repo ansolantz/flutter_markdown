@@ -52,7 +52,7 @@ class DemoFormattedView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.bottomLeft,
+      alignment: Alignment.center,
       child: ConstrainedBox(
         constraints: BoxConstraints(maxWidth: 1250),
         child: child,
@@ -74,7 +74,7 @@ class DemoRawDataView extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.done) {
           return SingleChildScrollView(
             child: Container(
-              //padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               child: Text(
                 snapshot.data,
                 softWrap: true,
